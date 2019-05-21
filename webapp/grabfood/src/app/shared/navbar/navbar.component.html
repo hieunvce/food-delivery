@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>GrabFood</span>
+    <span class="fill-remaining-space"></span>
+    <button mat-button [routerLink]="['/restaurant']" routerLinkActive="router-link-active">Restaurant</button>
+    <button mat-button [routerLink]="['/about']" routerLinkActive="router-link-active">About</button>
+    <button mat-button [routerLink]="['/contact']" routerLinkActive="router-link-active">Contact</button>
+    <button mat-button mat-flat-button color="ancent" [routerLink]="['/login']"
+      routerLinkActive="router-link-active">Login</button>
+  </mat-toolbar-row>
