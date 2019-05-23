@@ -1,3 +1,57 @@
-<p>
-  restaurant works!
-</p>
+<div class="restaurant-container">
+
+  <!--Loading result-->
+  <div class="loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+
+  <!--Add new restaurant-->
+  <div>
+    <a mat-flat-button color="primary" [routerLink]="['/restaurant-add']" routerLinkActive="router-link-active">
+      <mat-icon>add</mat-icon>
+    </a>
+  </div>
+
+  <!--Restaurant table-->
+  <div class="mat-elevation-z8">
+    <table class="table-container" mat-table [dataSource]="restaurants" matSort matSortActive="Name" matSortDisableClear
+      matSortDirection="asc">
+
+      <!--Restaurant Img column-->
+      <ng-container matColumnDef="Img">
+        <th mat-header-cell *matHeaderCellDef>Img</th>
+        <td mat-cell *matCellDef="let restaurant">
+          <img src={{restaurant.img}} alt="restaurant-img">
+        </td>
+      </ng-container>
+
+      <!--Restaurant Name column-->
+      <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let restaurant">
+          {{restaurant.name}}
+        </td>
+      </ng-container>
+
+      <!--Restaurant Address column-->
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let restaurant">
+          {{restaurant.address}}
+        </td>
+      </ng-container>
+      <!--Restaurant Action column-->
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let restaurant">
+          <a mat-flat-button color="primary" [routerLink]="['/restaurant-edit',restaurant._id]"
+            routerLinkActive="router-link-active">
+            <mat-icon>edit</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

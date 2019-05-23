@@ -10,7 +10,10 @@ import {
   MatInputModule,
   MatTableModule,
   MatMenuModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatFormFieldModule
 } from '@angular/material';
 
 @NgModule({
@@ -25,7 +28,11 @@ import {
     MatInputModule,
     MatTableModule,
     MatMenuModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatFormFieldModule
   ],
   exports: [
     BrowserAnimationsModule,
