@@ -1,3 +1,62 @@
-<p>
-  restaurant-edit works!
-</p>
+<div class="form-container mat-elevation-z8">
+
+  <!--Loading info-->
+  <div class=loading-shade *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+
+  <!--Show return to restaurant list button-->
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/restaurant/list']">
+      <mat-icon>list</mat-icon>
+    </a>
+  </div>
+
+  <!--Show restaurant info-->
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h3>Restaurant: {{restaurant.name}}</h3>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="restaurantForm" (ngSubmit)="onFormSubmit(restaurantForm.value)">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Restaurant name" formControlName="name" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!restaurantForm.get('name').valid && restaurantForm.get('name').touched">Please enter
+              restaurant name</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Restaurant address" formControlName="address" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!restaurantForm.get('address').valid && restaurantForm.get('address').touched">Please enter
+              restaurant address</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Restaurant image" formControlName="img" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!restaurantForm.get('img').valid && restaurantForm.get('img').touched">Please enter
+              restaurant image</span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-row">
+          <button type="submit" [disabled]="!restaurantForm.valid" mat-flat-button color="primary">
+            <mat-icon>save</mat-icon>
+            <span>SAVE</span>
+          </button>
+          <button type="button" mat-flat-button color="warn" (click)="openDialog(restaurant._id)">
+            <mat-icon>delete</mat-icon>
+            <span>DELETE</span>
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>
