@@ -7,10 +7,13 @@
       <mat-form-field>
         <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
       </mat-form-field>
-      <br/>
+      <br />
       <mat-form-field>
         <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
       </mat-form-field>
+      <br />
+
+      <p style="color: red">{{loginNotify}}</p>
 
     </form>
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
