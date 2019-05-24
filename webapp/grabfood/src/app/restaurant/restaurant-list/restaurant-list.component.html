@@ -19,7 +19,7 @@
     <ng-container matColumnDef="Img">
       <th mat-header-cell *matHeaderCellDef>Img</th>
       <td mat-cell *matCellDef="let restaurant">
-        <img src={{restaurant.img}} alt="restaurant-img">
+        <img class="avatar_img" src={{restaurant.img}} alt="restaurant-img">
       </td>
     </ng-container>
 
@@ -45,6 +45,10 @@
         <a mat-flat-button color="primary" [routerLink]="['/restaurant',restaurant._id,'edit']"
           routerLinkActive="router-link-active">
           <mat-icon>edit</mat-icon>
+        </a>
+        <a mat-flat-button color="primary" [routerLink]="['/restaurant',restaurant._id,'menu']"
+          routerLinkActive="router-link-active">
+          <mat-icon>menu</mat-icon>
         </a>
       </td>
     </ng-container>

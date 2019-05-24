@@ -60,14 +60,16 @@ export class RestaurantapiService {
   }
 
   addRestaurant(Restaurant): Observable<Restaurant> {
-    return this.http.post<Restaurant>(apiUrl, Restaurant, this.httpOptions).pipe(
-      tap((Restaurant: Restaurant) =>
-        console.log(`added Restaurant w/ id=${Restaurant._id}`)
-      ),
-      catchError(this.handleError<Restaurant>("addRestaurant"))
-    );
+    return this.http
+      .post<Restaurant>(apiUrl, Restaurant, this.httpOptions)
+      .pipe(
+        tap((Restaurant: Restaurant) =>
+          console.log(`added Restaurant w/ id=${Restaurant._id}`)
+        ),
+        catchError(this.handleError<Restaurant>("addRestaurant"))
+      );
   }
-  
+
   updateRestaurant(id, Restaurant): Observable<any> {
     const url = `${apiUrl}/${id}`;
     return this.http.put(url, Restaurant, this.httpOptions).pipe(
@@ -83,5 +85,8 @@ export class RestaurantapiService {
       catchError(this.handleError<Restaurant>("deleteRestaurant"))
     );
   }
-  
+
+  uploadImage(file:File):any{
+    
+  }
 }

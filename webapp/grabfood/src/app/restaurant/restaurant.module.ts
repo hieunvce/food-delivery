@@ -11,6 +11,10 @@ import { RestaurantEditComponent } from "./restaurant-edit/restaurant-edit.compo
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material';
 import { ConfirmDialog } from '../shared/dialog/confirm.dialog';
+import { MenuListComponent } from './menu-list/menu-list.component';
+import { MenuAddComponent } from './menu-add/menu-add.component';
+import { MenuEditComponent } from './menu-edit/menu-edit.component';
+import { MenuDetailComponent } from './menu-detail/menu-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { ConfirmDialog } from '../shared/dialog/confirm.dialog';
     RestaurantDetailComponent,
     RestaurantAddComponent,
     RestaurantEditComponent,
-    ConfirmDialog
+    ConfirmDialog,
+    MenuListComponent,
+    MenuAddComponent,
+    MenuEditComponent,
+    MenuDetailComponent
   ],
   entryComponents:[
     ConfirmDialog

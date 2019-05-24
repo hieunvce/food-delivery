@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RestaurantModule } from "./restaurant/restaurant.module";
+import { AccordionModule } from "primeng/accordion";
+import { MenuItem } from "primeng/api";  
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -35,7 +37,8 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RestaurantModule
+    RestaurantModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

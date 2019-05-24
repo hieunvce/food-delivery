@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Restaurant } from "../service/restaurant.schema";
 import { RestaurantapiService } from "../service/restaurantapi.service";
+
 @Component({
   selector: "app-restaurant-list",
   templateUrl: "./restaurant-list.component.html",

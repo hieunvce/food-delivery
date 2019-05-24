@@ -18,6 +18,8 @@
       <mat-card-title>
         <h3>Restaurant: {{restaurant.name}}</h3>
       </mat-card-title>
+      <span class="spacer"></span>
+      <img class="avatar_img" src={{restaurant.img}} alt="restaurant-img">
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="restaurantForm" (ngSubmit)="onFormSubmit(restaurantForm.value)">
@@ -36,14 +38,8 @@
               restaurant address</span>
           </mat-error>
         </mat-form-field>
-
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Restaurant image" formControlName="img" [errorStateMatcher]="matcher">
-          <mat-error>
-            <span *ngIf="!restaurantForm.get('img').valid && restaurantForm.get('img').touched">Please enter
-              restaurant image</span>
-          </mat-error>
-        </mat-form-field>
+        
+        <!--TODO: Image Uploader here-->
 
         <div class="button-row">
           <button type="submit" [disabled]="!restaurantForm.valid" mat-flat-button color="primary">
