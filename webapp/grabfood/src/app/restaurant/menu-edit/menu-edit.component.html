@@ -1,3 +1,68 @@
-<p>
-  menu-edit works!
-</p>
+<div class="form-container mat-elevation-z8">
+
+  <!--Loading info-->
+  <div class=loading-shade *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+
+  <!--Show return to product list button-->
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/restaurant', product.restaurantId, 'menu']">
+      <!--TODO: Redirect to menu list-->
+      <mat-icon>list</mat-icon>
+    </a>
+  </div>
+
+  <!--Show product info-->
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h3>Product: {{product.name}}</h3>
+      </mat-card-title>
+      <span class="spacer"></span>
+      <img class="avatar_img" src={{product.img}} alt="product-img">
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="productForm" (ngSubmit)="onFormSubmit(productForm.value)">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Product name" formControlName="name" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!productForm.get('name').valid && productForm.get('name').touched">Please enter
+              product name</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input type="number" matInput placeholder="product price" formControlName="price"
+            [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!productForm.get('price').valid && productForm.get('price').touched">Please enter
+              product price</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="product description" formControlName="description">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <!--TODO: Multichoice category. Add category table to database and fix backend-->
+          <input matInput placeholder="product category" formControlName="category">
+        </mat-form-field>
+
+        <!--TODO: Image Uploader here-->
+
+        <div class="button-row">
+          <button type="submit" [disabled]="!productForm.valid" mat-flat-button color="primary">
+            <mat-icon>save</mat-icon>
+            <span>SAVE</span>
+          </button>
+          <button type="button" mat-flat-button color="warn" (click)="openDialog(product._id)">
+            <mat-icon>delete</mat-icon>
+            <span>DELETE</span>
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>
