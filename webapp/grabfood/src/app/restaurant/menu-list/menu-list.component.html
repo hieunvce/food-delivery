@@ -58,7 +58,7 @@
     <ng-container matColumnDef="Action">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let product">
-        <a mat-flat-button color="primary" [routerLink]="['/restaurant']"
+        <a mat-flat-button color="primary" [routerLink]="['/restaurant',restaurantId,'menu',product._id,'edit']"
           routerLinkActive="router-link-active">
           <mat-icon>edit</mat-icon>
         </a>
